@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" ng-app="myToDo">
+
+<head>
+    <meta charset="utf-8">
+    <title>My Angular Project</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <span class="navbar-brand">Customer Defect mapping Demo</span>
+        </div>
+    </nav>
+    <div class="container" ng-controller="mainController">
+        <select class="form-control" ng-model="formData.customer"></select>
+        <table class="table">
+            <tr ng-repeat="defect in formData.defects">
+                <td>
+                    <input class="form-control" ng-model="defect.defectId" />
+                </td>
+                <td>
+                    <input class="form-control" ng-model="defect.productFamily" />
+                </td>
+                <td>
+                    <input class="form-control" ng-model="defect.version" />
+                </td>
+            </tr>
+        </table>
+        <table class="table">
+            <tr ng-repeat="defect in formData.defects">
+                <td>{{defect.defectId}}</td>
+                <td>{{defect.productFamily}}</td>
+                <td>{{defect.version}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

@@ -2,8 +2,9 @@
   "name": "cafe_recipies",
   "version": "1.0.0",
   "description": "A collection of recipes Testing one more time",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,6 +18,10 @@
   },
   "homepage": "https://github.com/saswatijena/wired-brain-recipes#readme",
   "dependencies": {
+    "angular": "^1.7.2",
+    "angular-route": "^1.7.2",
+    "body-parser": "^1.18.3",
+    "bootstrap": "^4.1.3",
     "express": "^4.16.3",
     "gulp": "^3.9.1",
     "mongoose": "^5.2.5",
