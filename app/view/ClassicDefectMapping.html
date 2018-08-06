@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" ng-app="eventsApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>My Angular Project</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="../app.js"></script>
+    <script src="../controllers/classicDefectMappingController.js"></script>
+    <script src="../services/eventService.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <span class="navbar-brand">Customer Defect mapping Demo</span>
+        </div>
+    </nav>
+    <div class="container" ng-controller="classicDefectMappingController">
+        <div class="form-group">
+            <label for="drp-customer">Customer</label>
+            <select class="form-control" id="drp-customer" ng-model="customer">
+                <option>Customer 1</option>
+                <option>Customer 2</option>
+                <option>Customer 3</option>
+                <option>Customer 4</option>
+                <option>Customer 5</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="input-defectId">DefectID</label>
+
+            </div>
+            <div class="form-group col-md-4">
+                <label for="input-pf">Product Family</label>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="input-pf">Version</label>
+            </div>
+        </div>
+        <div class="row" ng-repeat="defect in defects">
+            <div class="form-group col-md-4">
+                <input type="text" class="form-control" id="input-defectId" placeholder="DefectID" ng-model="defect.defectId" />
+            </div>
+            <div class="form-group col-md-4">
+                <input type="text" class="form-control" id="input-pf" placeholder="Product family" ng-model="defect.productFamily" />
+            </div>
+            <div class="form-group col-md-4">
+                <input type="text" class="form-control" id="input-version" placeholder="Version" ng-model="defect.version" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="button" class="btn btn-primary pull-right" ng-click="addDefect()" value="Add rows" />
+            <input type="number" class="form-control pull-right" id="row-count" placeholder="no. of rows to add" ng-model="rowCount"
+                style="width:50px">
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="txt-comments">Comments</label>
+            <textarea type="text" id="txt-comments" placeholder="comments" rows="3" class="form-control" ng-model="comments"></textarea>
+        </div>
+
+        <div class="form-group">
+            <input type="button" class="btn btn-danger pull-right" ng-click="" value="Cancel" />
+            <input type="button" class="btn btn-success pull-right" ng-click="saveDefects()" value="Save" />
+        </div>
+
+
+    </div>
+</body>
+
+</html>
