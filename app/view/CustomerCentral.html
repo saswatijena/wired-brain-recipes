@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     <script src="../app.js"></script>
-    <script src="../services/defectService.js"></script>
+    <script src="../services/defectsService.js"></script>
     <script src="../controllers/customerCentralController.js"></script>
-    
+
 </head>
 
 <body>
@@ -19,10 +19,19 @@
         </div>
     </nav>
     <div class="container" ng-controller="customerCentralController">
-        {{title}}
-        <div class="form-group">
-            <input type="text" ng-keydown="searchDefects" class="form-control" id="input-defectId" placeholder="Search for defects" ng-model="searchTerm" />
+       
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" id="input-defectId" placeholder="Search for defects" ng-model="searchTerm" />
+                </div>
+                <div class="col-md-6">
+                    <input type="button" class="btn btn-primary" value="Search" ng-click="searchDefects()" />
+                </div>
+            </div>
+        </div>
 
+        <div class="row">
             <span ng-repeat="defect in defects">
                 <input type="checkbox" name="defects" value="defect.defectId"> {{defect.defectId}}
                 <br>

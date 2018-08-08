@@ -7,6 +7,7 @@
         $scope.defects =[];
 
         $scope.searchDefects = function(){
+            console.log($scope.searchTerm);
             $scope.defects = defectsService.searchDefects($scope.searchTerm);
         }
         

@@ -15,7 +15,7 @@
 
 
     <script src="../app.js"></script>
-    <script src="../controllers/classicDefectMappingController.js"></script>
+    <script src="../controllers/classicDefectMappingControllerModified.js"></script>
     <script src="../services/eventService.js"></script>
 </head>
 
@@ -25,7 +25,7 @@
             <span class="navbar-brand">Customer Defect mapping Demo</span>
         </div>
     </nav>
-    <div class="container" ng-controller="classicDefectMappingController">
+    <div class="container" ng-controller="classicDefectMappingControllerModified">
         <div class="form-group">
             <label for="drp-customer">Customer</label>
             <select class="form-control" id="drp-customer" ng-model="customer">
@@ -37,7 +37,7 @@
             </select>
         </div>
 
-        <div class="row">
+        <!-- <div class="row">
             <div class="form-group col-md-5">
                 <label for="input-defectId">DefectID</label>
 
@@ -51,24 +51,46 @@
             <div class="form-group col-md-1">
 
             </div>
+        </div> -->
+        <div class="row">
+            <table class="table table-striped">
+                <tr>
+                    <th>Defect ID</th>
+                    <th>Product Family</th>
+                    <th>Version</th>
+                </tr>
+               
+                    <tr ng-repeat="defect in defects">
+                        <td>{{defect.defectId}}</td>
+                        <td>{{defect.productFamily}}</td>
+                        <td>{{defect.version}}</td>
+                    </tr>
+                
+            </table>
+
         </div>
-        <div class="row" ng-repeat="defect in defects">
-            <div class="form-group col-md-5">
-                <input type="text" class="form-control" id="input-defectId" placeholder="DefectID" ng-model="defect.defectId" />
+        <div class="row" >
+            <div class="form-group col-md-4">
+                <!-- <label for="input-defectId">DefectID</label> -->
+                <input type="text" class="form-control" id="input-defectId" placeholder="DefectID" ng-model="newDefect.defectId" />
             </div>
             <div class="form-group col-md-3">
-                <input type="text" class="form-control" id="input-pf" placeholder="Product family" ng-model="defect.productFamily" />
+                <!-- <label for="input-pf">Product Family</label> -->
+                <input type="text" class="form-control" id="input-pf" placeholder="Product family" ng-model="newDefect.productFamily" />
             </div>
             <div class="form-group col-md-3">
-                <input type="text" class="form-control" id="input-version" placeholder="Version" ng-model="defect.version" />
+                <!-- <label for="input-pf">Version</label> -->
+                <input type="text" class="form-control" id="input-version" placeholder="Version" ng-model="newDefect.version" />
             </div>
-            <div class="form-group col-md-1">
-                <input type="button" class="btn btn-danger pull-right" value="Delete">
+            <div class="form-group col-md-2">
+                    <!-- <label for="input-pf"></label> -->
+                <!-- <input type="button" class="btn btn-danger pull-right" value="Delete"> -->
+                <input type="button" class="btn btn-primary center-block" ng-click="addDefect()" value="Add Defect" />
             </div>
         </div>
         <div class="row">
 
-            <div class="form-group col-md-offset-9">
+            <!-- <div class="form-group col-md-offset-9">
                 <div class="col-md-8">
                     <input type="number" class="form-control pull-right" id="row-count" placeholder="no. of rows to add" ng-model="rowCount" style="width:50px;margin: 5px">
                 </div>
@@ -76,12 +98,12 @@
                     <input type="button" class="btn btn-primary pull-right" style="margin: 5px" ng-click="addDefect()" value="Add rows" />
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
 
 
-        <div class="form-group row">
+            <!-- <div class="form-group row">
             <label for="txt-comments">Comments</label>
             <textarea type="text" id="txt-comments" placeholder="comments" rows="3" class="form-control" ng-model="comments"></textarea>
         </div>
@@ -89,10 +111,10 @@
         <div class="form-group">
             <input type="button" class="btn btn-danger pull-right" style="margin: 5px" ng-click="" value="Cancel" />
             <input type="button" class="btn btn-success pull-right" style="margin: 5px" ng-click="saveDefects()" value="Save" />
+        </div> -->
+
+
         </div>
-
-
-    </div>
 </body>
 
 </html>
